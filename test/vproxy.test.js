@@ -56,6 +56,8 @@ contract('Proxy contract testing', async (accounts) => {
     const res = await vProxyV2Instance.methods.logicCall(9,3).send({from: accounts[0], to: proxyContractAddress});
     const data = res.events.V2LogicCallEvent.returnValues.data;
     assert.equal(data, 12, 'Can not call V2 though proxy contract');
+
+    vProxyV2Instance.methods.sendEth()
   })
 
 })
